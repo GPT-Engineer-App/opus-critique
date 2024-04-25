@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Container, Textarea, Text, VStack, Heading, useToast } from "@chakra-ui/react";
+// Removed import as the file does not exist
 import { FaPaperPlane } from "react-icons/fa";
 
 const Index = () => {
@@ -11,7 +12,7 @@ const Index = () => {
     setText(event.target.value);
   };
 
-  const submitTextForCritique = () => {
+  const submitTextForCritique = async () => {
     if (!text.trim()) {
       toast({
         title: "Error",
@@ -23,9 +24,19 @@ const Index = () => {
       return;
     }
 
-    // Simulate a critique response
-    const mockCritique = "This is a very insightful piece, however, consider using more reliable sources for your arguments.";
-    setCritique(mockCritique);
+    try {
+      // Simulate a critique response
+      const mockCritique = "This is a very insightful piece, however, consider using more reliable sources for your arguments.";
+      setCritique(mockCritique);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to get a critique. Please try again later.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
