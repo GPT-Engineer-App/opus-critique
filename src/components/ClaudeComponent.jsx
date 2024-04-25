@@ -10,16 +10,16 @@ const ClaudeComponent = () => {
 
     try {
       const result = await axios.post(
-        "https://api.anthropic.com/v1/complete",
+        "https://api.litellm.ai/v1/complete",
         {
           prompt: prompt,
-          model: "claude-v1",
+          model: "lite-llm",
           max_tokens_to_sample: 100,
         },
         {
           headers: {
             "Content-Type": "application/json",
-            "X-API-Key": "ACTUAL_API_KEY",
+            Authorization: "Bearer ACTUAL_API_KEY",
           },
         },
       );
