@@ -10,7 +10,7 @@ const ClaudeComponent = () => {
 
     try {
       const result = await axios.post(
-        "https://api.litellm.ai/v1/complete",
+        "https://api.newendpoint.ai/v1/complete",
         {
           prompt: prompt,
           model: "lite-llm",
@@ -19,7 +19,7 @@ const ClaudeComponent = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer ACTUAL_API_KEY",
+            Authorization: "Bearer YOUR_NEW_API_KEY",
           },
         },
       );
