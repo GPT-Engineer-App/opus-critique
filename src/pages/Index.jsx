@@ -3,6 +3,10 @@ import { Box, Button, Container, Textarea, Text, VStack, Heading, useToast } fro
 // Removed import as the file does not exist
 import { FaPaperPlane } from "react-icons/fa";
 
+const assessNonfiction = (text) => {
+  return new Promise((resolve) => setTimeout(() => resolve({ critique: `Critique for your text: "${text}"` }), 1000));
+};
+
 const Index = () => {
   const [text, setText] = useState("");
   const [critique, setCritique] = useState("");
@@ -25,7 +29,7 @@ const Index = () => {
     }
 
     try {
-      const response = await new Promise(resolve => setTimeout(() => resolve({ critique: `Critique for your text: "${text}"` }), 1000));
+      const response = await assessNonfiction(text);
       setCritique(response.critique);
     } catch (error) {
       toast({
