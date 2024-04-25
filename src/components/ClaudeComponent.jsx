@@ -19,14 +19,14 @@ const ClaudeComponent = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            "X-API-Key": "YOUR_API_KEY",
+            "X-API-Key": "ACTUAL_API_KEY",
           },
         },
       );
 
       setResponse(result.data.completion);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("API Error:", error.response ? error.response.data : error.message);
     }
   };
 
