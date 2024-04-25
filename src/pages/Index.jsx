@@ -25,9 +25,8 @@ const Index = () => {
     }
 
     try {
-      // Simulate a critique response
-      const mockCritique = "This is a very insightful piece, however, consider using more reliable sources for your arguments.";
-      setCritique(mockCritique);
+      const response = await new Promise(resolve => setTimeout(() => resolve({ critique: `Critique for your text: "${text}"` }), 1000));
+      setCritique(response.critique);
     } catch (error) {
       toast({
         title: "Error",
